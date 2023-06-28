@@ -1,0 +1,41 @@
+{
+  "extends": [
+		"eslint:recommended",
+    "next/core-web-vitals",
+		"plugin:react/recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:tailwindcss/recommended",
+		"next"
+	],
+	"overrides": [
+		{
+			"files": ["*.ts", "*.tsx", "*.js"],
+			"parser": "@typescript-eslint/parser"
+		}
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"plugins": [
+		"react",
+		"@typescript-eslint"
+	],
+	"rules": {
+		"react/react-in-jsx-scope": "off",
+		"indent": ["error", 2],
+		"no-tabs": 0,
+		"quotes": [
+			"error",
+			"single"
+		],
+		"semi": [
+			"warn",
+			"always"
+		],
+		"@typescript-eslint/no-extra-semi": "off",
+		"object-curly-spacing":["warn", "always"],
+		"array-bracket-spacing": ["warn", "always"]
+	}
+}
