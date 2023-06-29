@@ -1,50 +1,31 @@
 import React from 'react';
 import Image from 'next/image';
+import Content from './Content';
 
 export default function Main() {
   return (
     <main>
-      <section className='flex flex-col'>
-        <h1>
-            WEBINARS EXCLUSIVOS
-        </h1>
-        <h1>
-            Menos Conversinha, <span>Mais Conversão</span>
-          <Image src="/images/asset-header.png" alt="semi logo" width={100} height={100}/>
-        </h1>
-        <hr />
-        <p>Conheça as estratégias que mudaram o jogo e como aplicá-las no seu negócio</p>
-      </section>
-      <section>
-        <nav>
-          <div>
-            <button type="button">Agências</button>
-            <button type="button">Chatbot</button>
-            <button type="button">Marketing Digital</button>
-            <button type="button">Geração de Leads</button>
-            <button type="button">Mídia Paga</button>
+      <section className='flex flex-col items-center space-y-2 bg-blue-50 py-24'>
+        <span className='rounded-xl rounded-bl-none border-2 border-blue-500 px-4 py-1 text-xs font-bold text-blue-500'>
+          WEBINARS EXCLUSIVOS
+        </span>
+        <div className='flex flex-col items-center space-y-2'>
+          <h1 className='text-3xl'>
+            Menos Conversinha, 
+          </h1>
+          <div className='relative'>
+            <h1 className='text-6xl font-bold text-blue-500'>
+              Mais Conversão
+            </h1>
+            <Image className='absolute -right-3 top-0 w-8' src="/images/asset-header.png" alt="semi logo" width={100} height={100}/>
           </div>
-          <div>
-            <span>Ordenar por</span>
-            <select name="orderBy" id="orderBy">
-              <option value="publishDate">Data de Publicação</option>
-            </select>
-          </div>
-        </nav>
-        <hr />
-        <div>
-          <Image src="/images/thumbnail.png" alt="curso" width={100} height={100}/>
-          <p>Como aumentar sua Geração de Leads feat. Traktor</p>
-        </div>
-        <hr />
-        <div>
-          <p>Página</p>
-          <p>1</p>
-          <p>2</p>
-          <p>3</p>
-          <p>4</p>
+          <hr/>
+          <p className='text-xs font-semibold'>
+            Conheça as estratégias que mudaram o jogo e como aplicá-las no seu negócio
+          </p>
         </div>
       </section>
+      <Content />
       <section>
         <Image src="/images/comparativo_img_CTA.png" alt="gráfico comparativo com outras soluções" width={100} height={100}/>
         <div>
