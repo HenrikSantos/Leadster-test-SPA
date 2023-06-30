@@ -30,9 +30,13 @@ npm run dev
 5. Criei um arquivo separado para cada seção.
 6. Estilizei o Header.
 7. Melhorei o Main criando o CSS e subdividi em outras seções:
+    - Content: essa seção contém filtros e vídeos da Leadster.
     - Content: fiz a parte de filtros de conteúdo utilizando inputs do tipo radio. Por enquanto, clicar não muda nada além do CSS.
     - Content: criei um novo componente para renderizar cada item. Essa parte foi um pouco confusa, pois no PowerPoint apenas diz: "Para a listagem de vídeos, use um arquivo de configuração {JSON} para alterar as URLs dos vídeos que abrem nos modais." Seria bom disponibilizar esse arquivo JSON e imagens personalizadas, optei por deixar isso para depois.
-    - Content: comecei a criar o modal
+    - Content: fiz a paginação, por enquanto não possui nenhuma lógica pois depende do arquivo json.
+    - Charts: separei essa seção com a imagem comparativa e a nota.
+    - Charts: deixei responsivo.
+8. Footer
 
   
 # EN

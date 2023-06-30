@@ -1,25 +1,33 @@
 'use client';
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent, MouseEvent } from 'react';
 import ContentItem from './ContentItem';
 
 export default function Content() {
-  const [ selectedOption, setSelectedOption ] = useState('');
+  const [ selectedFilter, setSelectedFilter ] = useState('');
+  const [ selectedPage, setSelectedPage ] = useState('');
 
-  const handleOptionChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSelectedOption(() => event.target.value);
+  const handleFilterOptionChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSelectedFilter(() => event.target.value);
+  };
+
+  const handleFilterPage = (event: MouseEvent<HTMLButtonElement>) => {
+    const buttonText = event.currentTarget?.innerText;
+    if (buttonText) {
+      setSelectedPage(() => buttonText);
+    }
   };
 
   return (
     <section className='py-3 lg:px-20 2xl:px-96'>
-      <div className='grid grid-cols-1 gap-3 p-3 lg:flex lg:justify-between '>
+      <div className='grid grid-cols-1 gap-3 p-3 lg:flex lg:justify-between'>
         <nav className='grid grid-cols-1 gap-1 lg:flex'>
           <input
             type="radio"
             name="category"
             id="agencias"
             value="agencias"
-            checked={selectedOption === 'agencias'}
-            onChange={(event) => handleOptionChange(event)}
+            checked={selectedFilter === 'agencias'}
+            onChange={(event) => handleFilterOptionChange(event)}
           />
           <label className="filterBtn" htmlFor="agencias">Agências</label>
 
@@ -28,8 +36,8 @@ export default function Content() {
             name="category"
             id="chatbot"
             value="chatbot"
-            checked={selectedOption === 'chatbot'}
-            onChange={(event) => handleOptionChange(event)}
+            checked={selectedFilter === 'chatbot'}
+            onChange={(event) => handleFilterOptionChange(event)}
           />
           <label className="filterBtn" htmlFor="chatbot">Chatbot</label>
 
@@ -38,8 +46,8 @@ export default function Content() {
             name="category"
             id="marketingDigital"
             value="marketingDigital"
-            checked={selectedOption === 'marketingDigital'}
-            onChange={(event) => handleOptionChange(event)}
+            checked={selectedFilter === 'marketingDigital'}
+            onChange={(event) => handleFilterOptionChange(event)}
           />
           <label className="filterBtn" htmlFor="marketingDigital">Marketing Digital</label>
 
@@ -48,8 +56,8 @@ export default function Content() {
             name="category"
             id="geracaoDeLeads"
             value="geracaoDeLeads"
-            checked={selectedOption === 'geracaoDeLeads'}
-            onChange={(event) => handleOptionChange(event)}
+            checked={selectedFilter === 'geracaoDeLeads'}
+            onChange={(event) => handleFilterOptionChange(event)}
           />
           <label className="filterBtn" htmlFor="geracaoDeLeads">Geração de Leads</label>
 
@@ -58,8 +66,8 @@ export default function Content() {
             name="category"
             id="midiaPaga"
             value="midiaPaga"
-            checked={selectedOption === 'midiaPaga'}
-            onChange={handleOptionChange}
+            checked={selectedFilter === 'midiaPaga'}
+            onChange={handleFilterOptionChange}
           />
           <label className="filterBtn" htmlFor="midiaPaga">Mídia Paga</label>
         </nav>
@@ -77,12 +85,23 @@ export default function Content() {
         ))}
       </div>
       <hr />
-      <div>
+      <div className='flex justify-center gap-3 p-3'>
         <p>Página</p>
-        <p>1</p>
-        <p>2</p>
-        <p>3</p>
-        <p>4</p>
+        {Array.from(Array(4), (x, index) => index + 1).map((element) => (
+          <button
+            key={element}
+            type='button'
+            id={String(element)}
+            value={String(element)}
+            onClick={(e) => handleFilterPage(e)}
+            className={`
+            ${selectedPage === String(element) ? 'border-blue-500 text-blue-500 ' : ''} 
+            rounded-md border px-2 py-1 font-medium hover:cursor-pointer
+            `}
+          >
+            {element}
+          </button>
+        ))}
       </div>
     </section>
   );

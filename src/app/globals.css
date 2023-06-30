@@ -16,7 +16,7 @@
 }
 
 /* remove os circulos no radio input  */
-input[name="category"] {
+input[name="category"], input[name="page"]  {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;

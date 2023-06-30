@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Content from './Content';
+import Charts from './Charts';
 
 export default function Main() {
   return (
@@ -26,24 +27,7 @@ export default function Main() {
         </div>
       </section>
       <Content />
-      <section>
-        <Image src="/images/comparativo_img_CTA.png" alt="gráfico comparativo com outras soluções" width={100} height={100}/>
-        <div>
-          <h1>Pronto para triplicar sua</h1>
-          <h1>Geração de Leads?</h1>
-          <h2>Criação e ativação em 4 minutos.</h2>
-          <hr />
-          <div>
-            <button type="button">VER DEMONSTRAÇÃO</button>
-            <Image src="/images/selo_RD.png" alt="selo RD" width={100} height={100}/>
-          </div>
-          <span>
-              Não é necessário Cartão de Crédito | 
-            <Image src="/images/rating.webp" alt="nota de avaliação" width={100} height={100}/> 
-              4.9/5 média de satisfação
-          </span>
-        </div>
-      </section>
+      <Charts />
     </main>
   );
 }
