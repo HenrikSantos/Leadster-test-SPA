@@ -1,19 +1,23 @@
 'use client';
 import React, { useState, ChangeEvent, MouseEvent } from 'react';
 import ContentItem from './ContentItem';
+import data from '../data.json';
+
+const ITEMSPERPAGE = 9;
 
 export default function Content() {
   const [ selectedFilter, setSelectedFilter ] = useState('');
-  const [ selectedPage, setSelectedPage ] = useState('');
+  const [ selectedPage, setSelectedPage ] = useState(1);
 
   const handleFilterOptionChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSelectedPage(1);
     setSelectedFilter(() => event.target.value);
   };
 
   const handleFilterPage = (event: MouseEvent<HTMLButtonElement>) => {
     const buttonText = event.currentTarget?.innerText;
     if (buttonText) {
-      setSelectedPage(() => buttonText);
+      setSelectedPage(() => +buttonText);
     }
   };
 
@@ -25,8 +29,8 @@ export default function Content() {
             type="radio"
             name="category"
             id="agencias"
-            value="agencias"
-            checked={selectedFilter === 'agencias'}
+            value="agência"
+            checked={selectedFilter === 'agência'}
             onChange={(event) => handleFilterOptionChange(event)}
           />
           <label className="filterBtn" htmlFor="agencias">Agências</label>
@@ -45,8 +49,8 @@ export default function Content() {
             type="radio"
             name="category"
             id="marketingDigital"
-            value="marketingDigital"
-            checked={selectedFilter === 'marketingDigital'}
+            value="marketing"
+            checked={selectedFilter === 'marketing'}
             onChange={(event) => handleFilterOptionChange(event)}
           />
           <label className="filterBtn" htmlFor="marketingDigital">Marketing Digital</label>
@@ -55,8 +59,8 @@ export default function Content() {
             type="radio"
             name="category"
             id="geracaoDeLeads"
-            value="geracaoDeLeads"
-            checked={selectedFilter === 'geracaoDeLeads'}
+            value="leads"
+            checked={selectedFilter === 'leads'}
             onChange={(event) => handleFilterOptionChange(event)}
           />
           <label className="filterBtn" htmlFor="geracaoDeLeads">Geração de Leads</label>
@@ -65,8 +69,8 @@ export default function Content() {
             type="radio"
             name="category"
             id="midiaPaga"
-            value="midiaPaga"
-            checked={selectedFilter === 'midiaPaga'}
+            value="paga"
+            checked={selectedFilter === 'paga'}
             onChange={handleFilterOptionChange}
           />
           <label className="filterBtn" htmlFor="midiaPaga">Mídia Paga</label>
@@ -80,34 +84,61 @@ export default function Content() {
       </div>
       <hr />
       <div className='m-4 grid grid-cols-1 gap-4 lg:grid-cols-3 lg:py-10'>
-        {Array.from(Array(9), (x, index) => index + 1).map((element) => (
-          <ContentItem
-            key={element}
-            title='Como aumentar sua Geração de Leads feat. Traktor'
-            imgSource='/images/thumbnail.png'
-            source='https://www.youtube.com/embed/a89Htfx0YKo'
-            description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur magni ut odit veniam eligendi animi et quaerat, eius, molestias aspernatur aliquid delectus esse voluptatibus, cum in quis. Minus, ullam optio?' 
-          />            
-        ))}
+        {
+          data.videos.filter(({ title }) => title
+            .toLowerCase()
+            .includes(selectedFilter))
+            .slice((selectedPage * ITEMSPERPAGE) - ITEMSPERPAGE, selectedPage * ITEMSPERPAGE  )
+            .map(({
+              title,
+              imgSource,
+              source,
+              description,
+            }) => (
+              <ContentItem
+                key={title}
+                title={title}
+                imgSource={imgSource}
+                source={source}
+                description={description}
+              />            
+            ))
+        }
       </div>
       <hr />
       <div className='flex justify-center gap-3 p-3'>
-        <p>Página</p>
-        {Array.from(Array(4), (x, index) => index + 1).map((element) => (
-          <button
-            key={element}
-            type='button'
-            id={String(element)}
-            value={String(element)}
-            onClick={(e) => handleFilterPage(e)}
-            className={`
-            ${selectedPage === String(element) ? 'border-blue-500 text-blue-500 ' : ''} 
-            rounded-md border px-2 py-1 font-medium hover:cursor-pointer
-            `}
-          >
-            {element}
-          </button>
-        ))}
+        {
+          data.videos.filter(({ title }) => title
+            .toLowerCase()
+            .includes(selectedFilter)).length ? (
+              <>
+                <p>Página</p>
+                {
+                  Array.from(Array(+Math.ceil((data.videos.filter(({ title }) => title
+                    .toLowerCase()
+                    .includes(selectedFilter))
+                    .length/ITEMSPERPAGE))), (x, index) => index + 1)
+                    .map((element) => (
+                      <button
+                        key={element}
+                        type='button'
+                        id={String(element)}
+                        value={String(element)}
+                        onClick={(e) => handleFilterPage(e)}
+                        className={`
+                          ${selectedPage === element ? 'border-blue-500 text-blue-500 ' : ''} 
+                          rounded-md border px-2 py-1 font-medium hover:cursor-pointer
+                        `}
+                      >
+                        {element}
+                      </button>
+                    ))
+                }
+              </>
+            ):(
+              <h1>Nada Encontrado!</h1>
+            )
+        }
       </div>
     </section>
   );

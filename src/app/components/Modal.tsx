@@ -10,7 +10,7 @@ export default function Modal(
           <span className='font-bold text-blue-500'>Webinar:</span> {title}
         </h1>
         
-        <iframe className='w-full py-3' height="350" src={source} title="Como usar o ChatGPT para gerar mais Leads Qualificados" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+        <iframe className='w-full py-3' height="350" src={source} title={title} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
         <div className='grid grid-cols-1 gap-3 px-8'>
           <h3 className='font-bold'>Descrição</h3>
           <hr />

@@ -37,8 +37,12 @@ npm run dev
    - **Charts:** separei essa seção com a imagem e a nota.
    - **Charts:** deixei responsivo.
 8. Comecei a estilizar o footer, primeiro pelo mobile e depois adaptei seguindo o protótipo. Infelizmente, não consegui deixar a mesma cor de letra nos links, mesmo usando um color picker não deu certo, pois a resolução da imagem estava baixa.
-9. Voltei para o ContentItem para fazer o modal, comecei criando um arquivo Modal e coloquei ele dentro de cada ContentItem.
-
+9. Voltei para o ContentItem para fazer o modal, comecei criando um arquivo Modal e coloquei ele dentro de cada ContentItem, terminei de fazer seguindo o protótipo.
+10. Comecei a criar o arquivo.json:
+   - **Dados:** encontrei links supostamente relacionados a alguns dos filtros de conteúdo no site da Leadster, mas não encontrei vídeos.
+   - **Dados:** fui ao YouTube e encontrei alguns vídeos relacionados aos filtros. Preenchi com pelo menos 1 vídeo por categoria, exceto "Ágencias".
+   - **Dados:** apliquei os filtros, ao clicar nos botões os dados são filtrados de acordo com a categoria.
+11. Voltei a trabalhar no Content, finalizei o funcionamento dos filtros e a paginação.
   
 # EN
 
