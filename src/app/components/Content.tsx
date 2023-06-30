@@ -18,7 +18,7 @@ export default function Content() {
   };
 
   return (
-    <section className='py-3 lg:px-20 2xl:px-96'>
+    <section className='py-3 lg:px-20 xl:py-20 2xl:px-96'>
       <div className='grid grid-cols-1 gap-3 p-3 lg:flex lg:justify-between'>
         <nav className='grid grid-cols-1 gap-1 lg:flex'>
           <input
@@ -81,7 +81,13 @@ export default function Content() {
       <hr />
       <div className='m-4 grid grid-cols-1 gap-4 lg:grid-cols-3 lg:py-10'>
         {Array.from(Array(9), (x, index) => index + 1).map((element) => (
-          <ContentItem key={element} source='/images/thumbnail.png' description='Como aumentar sua Geração de Leads feat. Traktor' />
+          <ContentItem
+            key={element}
+            title='Como aumentar sua Geração de Leads feat. Traktor'
+            imgSource='/images/thumbnail.png'
+            source='https://www.youtube.com/embed/a89Htfx0YKo'
+            description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur magni ut odit veniam eligendi animi et quaerat, eius, molestias aspernatur aliquid delectus esse voluptatibus, cum in quis. Minus, ullam optio?' 
+          />            
         ))}
       </div>
       <hr />
