@@ -13,6 +13,9 @@
   input[name="category"]:checked + label {
     @apply bg-blue-500 text-white border-blue-500
   }
+  .footerLink {
+    @apply hover:underline hover:cursor-pointer text-zinc-400  hover:text-blue-500
+  }
 }
 
 /* remove os circulos no radio input  */
@@ -21,4 +24,11 @@ input[name="category"], input[name="page"]  {
   -moz-appearance: none;
   appearance: none;
   outline: none;
+}
+
+.fixed-element {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
