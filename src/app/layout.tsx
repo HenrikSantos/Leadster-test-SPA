@@ -5,7 +5,7 @@ const inter = Inter({ subsets: [ 'latin' ] });
 
 export const metadata = {
   title: 'Leadster',
-  description: 'Desafio técnico para a vaga de frontend developer na Leadster, feito com Next.js e Tailwind.',
+  description: 'Desafio técnico para a vaga de frontend developer na Leadster, feito com Next.js e Tailwind.'
 };
 
 export default function RootLayout({
@@ -15,6 +15,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br">
+      <head>
+        <meta charSet="UTF-8" />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );
