@@ -43,6 +43,7 @@ npm run dev
    - **Dados:** fui ao YouTube e encontrei alguns vídeos relacionados aos filtros. Preenchi com pelo menos 1 vídeo por categoria, exceto "Ágencias".
    - **Dados:** apliquei os filtros, ao clicar nos botões os dados são filtrados de acordo com a categoria.
 11. Voltei a trabalhar no Content, finalizei o funcionamento dos filtros e a paginação.
+12. Percebi que havia alguns problemas de responsividade com o Modal.
   
 # EN
 
