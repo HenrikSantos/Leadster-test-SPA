@@ -34,24 +34,25 @@ export default function Content() {
     <section className='py-3 lg:px-20 xl:py-20 2xl:px-96'>
       <div className='grid grid-cols-1 gap-3 p-3 lg:flex lg:justify-between'>
         <nav className='grid grid-cols-1 gap-1 lg:flex'>
-          {[ 'agência', 'chatbot', 'marketing', 'leads', 'paga' ].map(category => (
-            <React.Fragment key={category}>
+          {[ [ 'Agências', 'agência' ], [ 'Chatbot', 'chatbot' ], [ 'Marketing Digital', 'marketing' ], [ 'Geração de Leads', 'leads' ], [ 'Mídia Paga', 'paga' ] ].map(category => (
+            <React.Fragment key={category[1]}>
               <input
                 type="radio"
                 name="category"
-                id={category}
-                value={category}
-                checked={selectedFilter === category}
+                id={category[1]}
+                value={category[1]}
+                checked={selectedFilter === category[1]}
                 onChange={handleFilterOptionChange}
               />
-              <label className="filterBtn" htmlFor={category}>{category}</label>
+              <label className="filterBtn" htmlFor={category[1]}>{category[0]}</label>
             </React.Fragment>
           ))}
         </nav>
         <div className='flex items-baseline justify-between gap-4'>
-          <span className='mx-1 text-sm font-semibold xl:text-base'>Ordenar por</span>
-          <select name="orderBy" id="orderBy" className='rounded-xl border border-black px-2 py-1 text-xs hover:border-blue-500 hover:text-blue-500 xl:text-base'>
+          <span className='mx-3 text-sm font-semibold xl:text-base'>Ordenar por</span>
+          <select name="orderBy" id="orderBy" className='rounded-md border border-black px-2 py-1 text-xs hover:border-blue-500 hover:text-blue-500 xl:text-base'>
             <option value="publishDate">Data de Publicação</option>
+            <option value="publishDate">Mais recentes</option>
           </select>
         </div>
       </div>

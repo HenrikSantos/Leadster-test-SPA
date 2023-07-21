@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className='grid grid-cols-1 gap-4 py-5 lg:px-32 xl:px-72'>
+    <footer className='mt-10 grid grid-cols-1 gap-4 py-5 lg:px-32 xl:px-72'>
       <div className='mx-auto flex w-8/12 flex-col items-center justify-center'>
         <Image className='w-10/12 lg:w-3/12' src="/images/logo.png" alt="logo" width={900} height={900}/>
         <p className='text-sm lg:text-xs'>Transformando visitantes em clientes.</p>
